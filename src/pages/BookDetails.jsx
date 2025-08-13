@@ -1,16 +1,27 @@
 import React from 'react'
 import { books } from '../services/dummybooks'
 import { useParams } from 'react-router-dom'
+import { useAuth } from "../context/AuthContext"
+import { addFavorite, setReadingStatus } from '../services/Firestore'
 
 function BookDetails() {
     const { id } = useParams()
+    const { user } = useAuth()
     const book = books.find(b => b.id === id)
+
+    const handleFavorite = () => {
+        if (user) addFavorite(user.uid, book)
+    }
+
+    const handleReadyStatus = status => {
+        if (user) setReadingStatus(user.uid, book.id, status);
+    }
 
 if (!book) {
         return <div className='p-6 text-red-500'>Book not found</div>
     }
   return (
-    <div className='p-6 msx-w-4xl mx-auto'>
+    <div className='p-6 max-w-4xl mx-auto'>
         <div className='flex flex-col md:flex-row gap-6'>
             <img src={book.coverUrl}
                  alt={book.title} 
@@ -29,6 +40,10 @@ if (!book) {
                     <button className='bg-gray-200 px-4 py-2 rounded hover:bg-gray-300'>Mark as Reading</button>
                 </div>
             </div>
+        </div>
+        <div className='mt-6 flex gap-4'>
+            <button className='bg-purple-600 text-white px-4 py-2 rounded' onClick={handleFavorite}>Add to Favorites</button>
+            <button className='bg-purple-200 px-4 py-2 rounded' onClick={() => handleReadyStatus("reading")}>Mark as Reading</button>
         </div>
     </div>
   )
