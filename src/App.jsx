@@ -5,9 +5,13 @@ import Dashboard from "./pages/Dashboard"
 import Login from "./pages/Login"
 import ProtectedRoute from "./components/ProtectedRoute"
 import Navbar from "./components/Navbar"
+import { useAuth } from "./context/AuthContext"
+import Spinner from "./components/Spinner"
 
 function App() {
+  const { loading } = useAuth()
 
+  if (loading) return <Spinner />
 
   return (
     

@@ -42,10 +42,10 @@ export function AuthProvider({ children }) {
         
     }
 
-    const emailLogin = (email, password) => {
+    const emailLogin = async (email, password) => {
         setError(null)
         try {
-            await  signInWithEmailAndPassword(auth, email, password)
+            await signInWithEmailAndPassword(auth, email, password)
         } catch (err) {
             setError(err.message)
         }
