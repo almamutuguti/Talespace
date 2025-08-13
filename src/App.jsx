@@ -3,6 +3,7 @@ import Home from "./pages/Home"
 import BookDetails from "./pages/BookDetails"
 import Dashboard from "./pages/Dashboard"
 import Login from "./pages/Login"
+import ProtectedRoute from "./components/ProtectedRoute"
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <Route path="/book/:id" element={<BookDetails />}/>
         <Route path="/dashboard" element={<Dashboard />}/>
         <Route path="/login" element={<Login />}/>
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>}/>
       </Routes>
     </Router>
   )

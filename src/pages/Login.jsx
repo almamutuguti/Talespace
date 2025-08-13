@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
+import { Route } from 'react-router-dom';
 
 
 function Login() {
@@ -22,7 +23,7 @@ function Login() {
                   value={password}
                   onChange={e => setPassword(e.target.value)}
           />
-          <button className='w-full bg-purple-500 text-white py-2 rounded hover:bg-purple-600 mb-2'>
+          <button className='w-full bg-purple-500 text-white py-2 rounded hover:bg-purple-600 mb-2' onClick={() => emailLogin(email, password)}>
             Login
           </button>
           <button onClick={() => signUp(email, password)} className='w-full bg-gray-200 py-2 rounded hover:bg-gray-300'>
@@ -35,6 +36,8 @@ function Login() {
         Sign in with Google
        </button>
     </div>
+
+    
   )
 }
 
