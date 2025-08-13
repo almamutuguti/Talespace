@@ -1,5 +1,6 @@
 import { deleteDoc, doc, setDoc } from "firebase/firestore/lite"
-import { db } from "/firebase"
+import { db } from "./Firebase";
+
 
 
 

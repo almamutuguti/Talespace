@@ -4,12 +4,15 @@ import BookDetails from "./pages/BookDetails"
 import Dashboard from "./pages/Dashboard"
 import Login from "./pages/Login"
 import ProtectedRoute from "./components/ProtectedRoute"
+import Navbar from "./components/Navbar"
 
 function App() {
 
 
   return (
+    
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/book/:id" element={<BookDetails />}/>
