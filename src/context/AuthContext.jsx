@@ -1,7 +1,7 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, GoogleAuthProvider } from 'firebase/auth';
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import { auth } from '../services/Firebase';
-import { GoogleAuthProvider } from 'firebase/auth/web-extension';
+
 
 const AuthContext = createContext()
 
@@ -59,6 +59,8 @@ export function AuthProvider({ children }) {
   );
 }
 
+
+// eslint-disable-next-line react-refresh/only-export-components
 export function useAuth() {
     return useContext(AuthContext)
 }

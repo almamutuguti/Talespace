@@ -19,7 +19,13 @@ export async function removeFavorite(userId, bookId) {
     await deleteDoc(ref);
 }
 
-export async function setReadingStatus(userId, bookId, status) {
+export async function setReadingStatus(userId, bookId, status, book) {
     const ref = doc(db, "users", userId, "readingStatus", bookId)
-    await setDoc(ref, { status })
+    await setDoc(ref, { 
+        status,
+        title: book.title,
+        author: book.author,
+        coverUrl: book.coverUrl,
+        genre: book.genre
+    })
 }

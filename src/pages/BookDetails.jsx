@@ -13,11 +13,11 @@ function BookDetails() {
         if (user) addFavorite(user.uid, book)
     }
 
-    const handleReadyStatus = status => {
-        if (user) setReadingStatus(user.uid, book.id, status);
+    const handleReadingStatus = status => {
+        if (user) setReadingStatus(user.uid, book.id, status, book);
     }
 
-if (!book) {
+    if (!book) {
         return <div className='p-6 text-red-500'>Book not found</div>
     }
   return (
@@ -36,15 +36,14 @@ if (!book) {
 
                 {/* placeholder for added features */}
                 <div className='mt-6 flex gap-4'>
-                    <button className='bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700'>Add To Favorites</button>
-                    <button className='bg-gray-200 px-4 py-2 rounded hover:bg-gray-300'>Mark as Reading</button>
+                     <button className='bg-purple-600 text-white px-4 py-2 rounded' onClick={handleFavorite}>Add to Favorites</button> {/*add an icon */}
+                    <button className='bg-purple-200 px-4 py-2 rounded' onClick={() => handleReadingStatus("reading")}>Mark as Reading</button>
+                    <button className='bg-purple-200 px-4 py-2 rounded' onClick={() => handleReadingStatus("completed")}>Mark as Complete</button>
+                    <button className='bg-purple-200 px-4 py-2 rounded' onClick={() => handleReadingStatus("wishlist")}>Add To Wishlist</button>
                 </div>
             </div>
         </div>
-        <div className='mt-6 flex gap-4'>
-            <button className='bg-purple-600 text-white px-4 py-2 rounded' onClick={handleFavorite}>Add to Favorites</button>
-            <button className='bg-purple-200 px-4 py-2 rounded' onClick={() => handleReadyStatus("reading")}>Mark as Reading</button>
-        </div>
+        
     </div>
   )
 }
