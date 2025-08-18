@@ -21,10 +21,12 @@ export function AuthProvider({ children }) {
 
     const login = async () => {
         setError(null)
+        setLoading(true)
         const provider = new GoogleAuthProvider();
         // return signInWithPopup(auth, provider)
         try {
-            await signInWithPopup(auth, provider)
+            const result = await signInWithPopup(auth, provider)
+            return result
         } catch (err) {
             setError(err.message)
         }
@@ -35,7 +37,8 @@ export function AuthProvider({ children }) {
     const signUp = async(email, password) => {
         setError(null)
         try {
-            await createUserWithEmailAndPassword(auth, email, password)
+           const result = await createUserWithEmailAndPassword(auth, email, password)
+           return result
         } catch (err) {
             setError(err.message)
         }
@@ -45,7 +48,7 @@ export function AuthProvider({ children }) {
     const emailLogin = async (email, password) => {
         setError(null)
         try {
-            await signInWithEmailAndPassword(auth, email, password)
+            return await signInWithEmailAndPassword(auth, email, password)
         } catch (err) {
             setError(err.message)
         }

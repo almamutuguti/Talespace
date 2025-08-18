@@ -29,3 +29,13 @@ export async function setReadingStatus(userId, bookId, status, book) {
         genre: book.genre
     })
 }
+
+export async function updateReadingStatus(userId, bookId, newStatus) {
+    const ref = doc(db, "users", userId, "readingStatus", bookId)
+    await setDoc(ref, {status: newStatus}, {merge: true});
+}
+
+export async function removeReadingStatus(userId, bookId) {
+    const ref = doc(db, "users", userId, "readingStatus", bookId)
+    await deleteDoc(ref);
+}

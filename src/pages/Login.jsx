@@ -1,12 +1,25 @@
 import React, { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
-import { Route } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 
 function Login() {
-  const { login, emailLogin, signUp } = useAuth();
-  const { email, setEmail } = useState("");
-  const { password, setPassword} = useState("")
+  const { emailLogin, signUp } = useAuth();
+  const [ email, setEmail ] = useState("");
+  const [ password, setPassword ] = useState("")
+  const navigate = useNavigate()
+
+  const handleEmailLogin = async () => {
+    const result = await emailLogin(email, password)
+    if (result) navigate("/dashboard")
+  }
+
+  const handleGoogleLogin = async () => {
+    const result = await emailLogin(email, password)
+    if (result) navigate("/dashboard")
+  }
+
   return (
     <div className='flex flex-col items-center justify-center h-screen bg-gray-50'>
        <h1 className='text-3xl font-bold text-purple-700 mb-6'>Welcome to Talespace</h1>
@@ -23,15 +36,15 @@ function Login() {
                   value={password}
                   onChange={e => setPassword(e.target.value)}
           />
-          <button className='w-full bg-purple-500 text-white py-2 rounded hover:bg-purple-600 mb-2' onClick={() => emailLogin(email, password)}>
+          <button className='w-full bg-purple-500 text-white py-2 rounded hover:bg-purple-600 mb-2' onClick={handleEmailLogin}>
             Login
           </button>
           <button onClick={() => signUp(email, password)} className='w-full bg-gray-200 py-2 rounded hover:bg-gray-300'>
             Sign Up
           </button>
         </div> 
-       <button onClick={login}
-                className='text-white px-6 py-3 rounded hover:bg-purple-700 bg-purple-600'
+       <button onClick={handleGoogleLogin}
+              className='text-white px-6 py-3 rounded hover:bg-purple-700 bg-purple-600'
         >
         Sign in with Google
        </button>
@@ -42,3 +55,4 @@ function Login() {
 }
 
 export default Login
+
