@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext'
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../services/Firebase';
 import BookCard from '../components/BookCard';
+import ReadingStatusCard from '../components/ReadingStatusCard';
 
 function Dashboard() {
   const { user } = useAuth();
@@ -63,6 +64,15 @@ function Dashboard() {
           <p className='text-gray-500'>No books found here</p>
         )}
       </div>
+
+    {/* Inside render logic */}
+    {books.length > 0 ? (
+      activeTab === "readingStatus"
+      ? books.map(book => <ReadingStatusCard key={book.id} book={book}/>)
+      : books.map(book => <BookCard key={book.id} book={book}/>)
+    ) :(
+      <p className='text-gray-500'>No books found in this section.</p>
+    )}
     </div>
   )
 }
