@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { useNavigate } from 'react-router-dom';
+import { ProviderId, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { auth } from '../services/Firebase';
+import { GoogleAuthProvider } from 'firebase/auth/web-extension';
 
 
 
@@ -11,13 +14,25 @@ function Login() {
   const navigate = useNavigate()
 
   const handleEmailLogin = async () => {
-    const result = await emailLogin(email, password)
-    if (result) navigate("/dashboard")
+    // const result = await emailLogin(email, password)
+    // if (result) navigate("/dashboard")
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate('/dashboard')
+    } catch (error) {
+      console.error(error.message)
+    }
   }
 
   const handleGoogleLogin = async () => {
-    const result = await emailLogin(email, password)
-    if (result) navigate("/dashboard")
+    try {
+      const provider = new GoogleAuthProvider()
+      const result = await signInWithPopup(auth, provider)
+      if (result) navigate("/dashboard");
+    } catch (error) {
+      console.error('Google login error: ', error.message)
+    }
   }
 
   return (

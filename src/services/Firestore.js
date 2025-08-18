@@ -30,9 +30,9 @@ export async function setReadingStatus(userId, bookId, status, book) {
     })
 }
 
-export async function updateReadingStatus(userId, bookId, newStatus) {
+export async function updateReadingStatus(userId, bookId, newStatus, bookData) {
     const ref = doc(db, "users", userId, "readingStatus", bookId)
-    await setDoc(ref, {status: newStatus}, {merge: true});
+    await setDoc(ref, {status: newStatus, ...bookData}, {merge: true});
 }
 
 export async function removeReadingStatus(userId, bookId) {

@@ -15,7 +15,7 @@ function Dashboard() {
     if (!user) return;
 
     const fetchBooks = async () => {
-      const ref = collection(db, "users", user.uid, activeTab )
+      const ref = collection(db, "users", user.uid, activeTab)
       const snapShot = await getDocs(ref);
       let data = snapShot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
 
@@ -35,9 +35,9 @@ function Dashboard() {
       {/* Tabs */}
       <div className='flex gap-4 mb-6'>
         {["favorites", "readingStatus"].map(tab => (
-          <button key={tab} 
-                  onClick={() => setActiveTab(tab)}
-                  className={`px-4 py-2 rounded ${activeTab === tab ? "bg-purple-600 text-white" : "bg-gray-200"}`}
+          <button key={tab}
+            onClick={() => {setActiveTab(tab); setStatusFilter("all")}}
+            className={`px-4 py-2 rounded ${activeTab === tab ? "bg-purple-600 text-white" : "bg-gray-200"}`}
           >
             {tab === "favorites" ? "Favorites" : "Reading Status"}
           </button>
@@ -56,23 +56,19 @@ function Dashboard() {
         </div>
       )}
 
-        {/* Book Card grid */}
+      {/* Book Card grid */}
       <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
         {books.length > 0 ? (
-          books.map(book => <BookCard key={book.id} book={book}/>)
+          activeTab === "readingStatus"
+            ? books.map(book => <ReadingStatusCard key={book.id} book={book} />)
+            : books.map(book => <BookCard key={book.id} book={book} />)
         ) : (
-          <p className='text-gray-500'>No books found here</p>
+          <p className='text-gray-500'>No books found in this section.</p>
         )}
       </div>
 
-    {/* Inside render logic */}
-    {books.length > 0 ? (
-      activeTab === "readingStatus"
-      ? books.map(book => <ReadingStatusCard key={book.id} book={book}/>)
-      : books.map(book => <BookCard key={book.id} book={book}/>)
-    ) :(
-      <p className='text-gray-500'>No books found in this section.</p>
-    )}
+      
+
     </div>
   )
 }
