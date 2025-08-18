@@ -8,7 +8,7 @@ import { GoogleAuthProvider } from 'firebase/auth/web-extension';
 
 
 function Login() {
-  const { emailLogin, signUp } = useAuth();
+  const { signUp } = useAuth();
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("")
   const navigate = useNavigate()
