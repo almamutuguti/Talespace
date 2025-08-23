@@ -1,5 +1,6 @@
 import { deleteDoc, doc, setDoc } from "firebase/firestore/lite"
 import { db } from "./Firebase";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 
 
@@ -38,4 +39,18 @@ export async function updateReadingStatus(userId, bookId, newStatus, bookData) {
 export async function removeReadingStatus(userId, bookId) {
     const ref = doc(db, "users", userId, "readingStatus", bookId)
     await deleteDoc(ref);
+}
+
+export const getAllBooks = async () => {
+    const snapshot = await getDocs(collection(db, "books"))
+    return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+}
+
+export const getUserStats = async (uid) => {
+    const favSnap = await getDocs(query(collection(db, "favorites")))
+    const readSnap = await getDocs(query(collection(db, "readingStatus"), where("userId", "==", uid), where("status", "==", "completed")))
+    return {
+        favorites : favSnap.size,
+        read: readSnap.size
+    }
 }
