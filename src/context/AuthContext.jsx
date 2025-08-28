@@ -1,70 +1,65 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, GoogleAuthProvider } from 'firebase/auth';
-import React, { createContext, useContext, useEffect, useState } from 'react'
-import { auth } from '../services/Firebase';
 
+import React, { createContext, useState, useContext, useEffect } from 'react';
+import { login as apiLogin, register as apiRegister, setToken } from '../services/api';
 
-const AuthContext = createContext()
-
-export function AuthProvider({ children }) {
-    const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
-
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, user => {
-            setUser(user);
-            setLoading(false)
-        });
-
-        return () => unsubscribe();
-    }, []);
-
-    const login = async () => {
-        setError(null)
-        setLoading(true)
-        const provider = new GoogleAuthProvider();
-        // return signInWithPopup(auth, provider)
-        try {
-            const result = await signInWithPopup(auth, provider)
-            return result
-        } catch (err) {
-            setError(err.message)
-        }
-    }
-
-    const logout = () => signOut(auth);
-
-    const signUp = async(email, password) => {
-        setError(null)
-        try {
-           const result = await createUserWithEmailAndPassword(auth, email, password)
-           return result
-        } catch (err) {
-            setError(err.message)
-        }
-        
-    }
-
-    const emailLogin = async (email, password) => {
-        setError(null)
-        try {
-            return await signInWithEmailAndPassword(auth, email, password)
-        } catch (err) {
-            setError(err.message)
-        }
-       
-    }
-
-  return (
-    <AuthContext.Provider value={{ user, login, logout, signUp, emailLogin, loading, error }}>
-        {children}
-    </AuthContext.Provider>
-  );
-}
-
+const AuthContext = createContext();
 
 // eslint-disable-next-line react-refresh/only-export-components
-export function useAuth() {
-    return useContext(AuthContext)
-}
+export const useAuth = () => {
+  return useContext(AuthContext);
+};
 
+export const AuthProvider = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
+    
+    if (token && user) {
+      setToken(token);
+      setCurrentUser(JSON.parse(user));
+    }
+    setLoading(false);
+  }, []);
+
+  const register = async (userData) => {
+    const response = await apiRegister(userData);
+    if (response.ok) {
+      return { success: true };
+    } else {
+      return { success: false, error: 'Registration failed' };
+    }
+  };
+
+  const login = async (email, password) => {
+    try {
+      const data = await apiLogin({ email, password });
+      setCurrentUser(data.user);
+      return { success: true };
+    } catch (error) {
+      return { success: false, error: error.message };
+    }
+  };
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    setToken(null);
+    setCurrentUser(null);
+  };
+
+  const value = {
+    currentUser,
+    register,
+    login,
+    logout
+  };
+
+  return (
+    <AuthContext.Provider value={value}>
+      {!loading && children}
+    </AuthContext.Provider>
+  );
+};

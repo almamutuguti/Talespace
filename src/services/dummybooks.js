@@ -1,5 +1,3 @@
-
-
 export const books = [
     {
         id: 1,
@@ -8,8 +6,8 @@ export const books = [
         genre: "Fiction",
         rating: 4.8,
         pages: 288,
-        description: "Between life and death there is a library, and within that library, the shelves go on forever. Every book provides a chance to try another life you could have lived. To see how different choices would have changed you.",
-        cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1602190253i/52578297.jpg",
+        description: "Between life and death there is a library, and within that library, the shelves go on forever. Every book provides a chance to try another life you could have lived.",
+        cover: "https://images.pexels.com/photos/1370298/pexels-photo-1370298.jpeg?auto=compress&cs=tinysrgb&w=600",
         publishYear: 2020,
         isbn: "978-0525559474"
     },
@@ -21,7 +19,7 @@ export const books = [
         rating: 4.9,
         pages: 320,
         description: "An Easy & Proven Way to Build Good Habits & Break Bad Ones. Tiny changes, remarkable results. Transform your life with the power of atomic habits.",
-        cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1535115320i/40121378.jpg",
+        cover: "https://images.pexels.com/photos/904620/pexels-photo-904620.jpeg?auto=compress&cs=tinysrgb&w=600",
         publishYear: 2018,
         isbn: "978-0735211292"
     },
@@ -33,7 +31,7 @@ export const books = [
         rating: 4.7,
         pages: 400,
         description: "Reclusive Hollywood icon Evelyn Hugo finally decides to tell her life story—but only to one reporter. When Monique Grant is chosen, she has no idea what she's gotten herself into.",
-        cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1618739729i/32620332.jpg",
+        cover: "https://images.pexels.com/photos/3769714/pexels-photo-3769714.jpeg?auto=compress&cs=tinysrgb&w=600",
         publishYear: 2017,
         isbn: "978-1501161933"
     },
@@ -45,7 +43,7 @@ export const books = [
         rating: 4.6,
         pages: 688,
         description: "Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, heir to a noble family tasked with ruling an inhospitable world.",
-        cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1555447414i/44767458.jpg",
+        cover: "https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg?auto=compress&cs=tinysrgb&w=600",
         publishYear: 1965,
         isbn: "978-0441172719"
     },
@@ -57,7 +55,7 @@ export const books = [
         rating: 4.5,
         pages: 256,
         description: "Timeless lessons on wealth, greed, and happiness. Doing well with money isn't necessarily about what you know. It's about how you behave.",
-        cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1581527774i/41881472.jpg",
+        cover: "https://images.pexels.com/photos/210661/pexels-photo-210661.jpeg?auto=compress&cs=tinysrgb&w=600",
         publishYear: 2020,
         isbn: "978-0857197689"
     },
@@ -69,8 +67,176 @@ export const books = [
         rating: 4.4,
         pages: 384,
         description: "For years, rumors of the 'Marsh Girl' have haunted Barkley Cove, a quiet town on the North Carolina coast. So in late 1969, when handsome Chase Andrews is found dead.",
-        cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1582135294i/36809135.jpg",
+        cover: "https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg?auto=compress&cs=tinysrgb&w=600",
         publishYear: 2018,
         isbn: "978-0735219090"
+    },
+    {
+        id: 7,
+        title: "The Alchemist",
+        author: "Paulo Coelho",
+        genre: "Fiction",
+        rating: 4.7,
+        pages: 208,
+        description: "A magical story about following your dreams and listening to your heart. This inspiring tale has sold millions of copies worldwide.",
+        cover: "https://images.pexels.com/photos/33283/stack-books-vintage-books-book-old.jpg?auto=compress&cs=tinysrgb&w=600",
+        publishYear: 1988,
+        isbn: "978-0062315007"
+    },
+    {
+        id: 8,
+        title: "To Kill a Mockingbird",
+        author: "Harper Lee",
+        genre: "Classic",
+        rating: 4.8,
+        pages: 324,
+        description: "A gripping, heart-wrenching novel about race and prejudice through the eyes of a young girl in the American South.",
+        cover: "https://images.pexels.com/photos/1926988/pexels-photo-1926988.jpeg?auto=compress&cs=tinysrgb&w=600",
+        publishYear: 1960,
+        isbn: "978-0061120084"
+    },
+    {
+        id: 9,
+        title: "1984",
+        author: "George Orwell",
+        genre: "Dystopian",
+        rating: 4.7,
+        pages: 328,
+        description: "A dystopian social science fiction novel that examines the consequences of totalitarianism, mass surveillance, and repressive regimentation.",
+        cover: "https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=600",
+        publishYear: 1949,
+        isbn: "978-0451524935"
+    },
+    {
+        id: 10,
+        title: "The Great Gatsby",
+        author: "F. Scott Fitzgerald",
+        genre: "Classic",
+        rating: 4.3,
+        pages: 180,
+        description: "A tragic story of Jay Gatsby's quest for the American Dream set in the Jazz Age on Long Island.",
+        cover: "https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg?auto=compress&cs=tinysrgb&w=600",
+        publishYear: 1925,
+        isbn: "978-0743273565"
+    },
+    {
+        id: 11,
+        title: "Harry Potter and the Sorcerer's Stone",
+        author: "J.K. Rowling",
+        genre: "Fantasy",
+        rating: 4.9,
+        pages: 320,
+        description: "The first book in the Harry Potter series where a young wizard discovers his magical heritage and begins his education at Hogwarts.",
+        cover: "https://images.pexels.com/photos/674267/pexels-photo-674267.jpeg?auto=compress&cs=tinysrgb&w=600",
+        publishYear: 1997,
+        isbn: "978-0590353427"
+    },
+    {
+        id: 12,
+        title: "The Hobbit",
+        author: "J.R.R. Tolkien",
+        genre: "Fantasy",
+        rating: 4.8,
+        pages: 310,
+        description: "A fantasy novel about the adventures of hobbit Bilbo Baggins in Middle-earth, serving as a prelude to The Lord of the Rings.",
+        cover: "https://images.pexels.com/photos/1261731/pexels-photo-1261731.jpeg?auto=compress&cs=tinysrgb&w=600",
+        publishYear: 1937,
+        isbn: "978-0547928227"
+    },
+    {
+        id: 13,
+        title: "Pride and Prejudice",
+        author: "Jane Austen",
+        genre: "Romance",
+        rating: 4.5,
+        pages: 432,
+        description: "A romantic novel that critiques the British landed gentry in the early 19th century through the relationship between Elizabeth Bennet and Mr. Darcy.",
+        cover: "https://images.pexels.com/photos/2067560/pexels-photo-2067560.jpeg?auto=compress&cs=tinysrgb&w=600",
+        publishYear: 1813,
+        isbn: "978-0141439518"
+    },
+    {
+        id: 14,
+        title: "The Catcher in the Rye",
+        author: "J.D. Salinger",
+        genre: "Fiction",
+        rating: 4.2,
+        pages: 234,
+        description: "A novel about teenage rebellion and alienation, following Holden Caulfield's experiences in New York City after being expelled from prep school.",
+        cover: "https://images.pexels.com/photos/256450/pexels-photo-256450.jpeg?auto=compress&cs=tinysrgb&w=600",
+        publishYear: 1951,
+        isbn: "978-0316769174"
+    },
+    {
+        id: 15,
+        title: "The Lord of the Rings",
+        author: "J.R.R. Tolkien",
+        genre: "Fantasy",
+        rating: 4.9,
+        pages: 1178,
+        description: "An epic high fantasy trilogy about the quest to destroy the One Ring and defeat the Dark Lord Sauron.",
+        cover: "https://images.pexels.com/photos/159866/book-book-books-library-159866.jpeg?auto=compress&cs=tinysrgb&w=600",
+        publishYear: 1954,
+        isbn: "978-0544003415"
+    },
+    {
+        id: 16,
+        title: "The Silent Patient",
+        author: "Alex Michaelides",
+        genre: "Thriller",
+        rating: 4.6,
+        pages: 336,
+        description: "A psychological thriller featuring a woman who shoots her husband and then stops speaking, and the criminal psychotherapist who is obsessed with uncovering her motive.",
+        cover: "https://images.pexels.com/photos/1370296/pexels-photo-1370296.jpeg?auto=compress&cs=tinysrgb&w=600",
+        publishYear: 2019,
+        isbn: "978-1250301703"
+    },
+    {
+        id: 17,
+        title: "Educated",
+        author: "Tara Westover",
+        genre: "Biography",
+        rating: 4.8,
+        pages: 334,
+        description: "A memoir about a woman who leaves her survivalist family and goes on to earn a PhD from Cambridge University.",
+        cover: "https://images.pexels.com/photos/2041540/pexels-photo-2041540.jpeg?auto=compress&cs=tinysrgb&w=600",
+        publishYear: 2018,
+        isbn: "978-0399590504"
+    },
+    {
+        id: 18,
+        title: "The Shining",
+        author: "Stephen King",
+        genre: "Horror",
+        rating: 4.7,
+        pages: 447,
+        description: "A horror novel about a family that heads to an isolated hotel for the winter where a sinister presence influences the father into violence.",
+        cover: "https://images.pexels.com/photos/156009/fireworks-book-pages-read-156009.jpeg?auto=compress&cs=tinysrgb&w=600",
+        publishYear: 1977,
+        isbn: "978-0307743657"
+    },
+    {
+        id: 19,
+        title: "Thinking, Fast and Slow",
+        author: "Daniel Kahneman",
+        genre: "Psychology",
+        rating: 4.6,
+        pages: 499,
+        description: "The author presents his research on cognitive biases and prospect theory, offering insights into how we make decisions.",
+        cover: "https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&w=600",
+        publishYear: 2011,
+        isbn: "978-0374275631"
+    },
+    {
+        id: 20,
+        title: "The Road",
+        author: "Cormac McCarthy",
+        genre: "Post-Apocalyptic",
+        rating: 4.5,
+        pages: 287,
+        description: "A post-apocalyptic novel about a father and son's journey through a burned America, struggling to survive.",
+        cover: "https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?auto=compress&cs=tinysrgb&w=600",
+        publishYear: 2006,
+        isbn: "978-0307387899"
     }
-]
+];

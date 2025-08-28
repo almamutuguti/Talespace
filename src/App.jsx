@@ -10,6 +10,7 @@ import Spinner from "./components/Spinner"
 
 import Explore from "./pages/Explore"
 import Profile from "./pages/Profile"
+import Footer from "./components/Footer"
 
 function App() {
   const { loading } = useAuth()
@@ -33,6 +34,7 @@ function App() {
 
 
       </Routes>
+      <Footer />
     </Router>
   )
 }
