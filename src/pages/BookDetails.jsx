@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { books } from '../services/dummybooks'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useAuth } from "../context/AuthContext"
-import { addFavorite, setReadingStatus } from '../services/Firestore'
+
 import { 
   Heart, 
   Bookmark, 

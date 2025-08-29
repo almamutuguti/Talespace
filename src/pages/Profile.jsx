@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useAuth } from '../context/AuthContext'
-import { getUserStats } from '../services/Firestore';
 import Spinner from '../components/Spinner';
 import { BookOpen, Heart, LogOut, Mail, User, ChevronRight, Edit, Bookmark, BarChart3 } from 'lucide-react';
 

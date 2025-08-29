@@ -1,7 +1,7 @@
 import Book from '../models/bookModel';
 
 // Get all books for a user
-const getBooks = async (req, res) => {
+export const getBooks = async (req, res) => {
   try {
     const books = await Book.find({ userId: req.user._id }).sort({ createdAt: -1 });
     res.json(books);
@@ -12,7 +12,7 @@ const getBooks = async (req, res) => {
 };
 
 // Create a new book
-const createBook = async (req, res) => {
+export const createBook = async (req, res) => {
   try {
     const { title, author, description, coverImage } = req.body;
     
@@ -33,7 +33,7 @@ const createBook = async (req, res) => {
 };
 
 // Update a book
-const updateBook = async (req, res) => {
+export const updateBook = async (req, res) => {
   try {
     const { id } = req.params;
     const { title, author, description, coverImage } = req.body;
@@ -58,7 +58,7 @@ const updateBook = async (req, res) => {
 };
 
 // Delete a book
-const deleteBook = async (req, res) => {
+export const deleteBook = async (req, res) => {
   try {
     const { id } = req.params;
     
